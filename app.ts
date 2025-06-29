@@ -13,7 +13,7 @@ app.use(cors({
 }));
 // Allowed origins
 const allowedOrigins = [
-    'http://localhost:5137', 'https://inventorymanagement-hazel.vercel.app'
+    'http://localhost:5173', 'https://inventorymanagement-hazel.vercel.app'
 ];
 
 // CORS middleware
