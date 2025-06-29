@@ -6,7 +6,10 @@ import { productRoutes } from './routes/product.routes';
 const app = express();
 
 // Middleware
-app.use(cors({ origin: ['http://localhost:5137', 'https://inventorymanagement-hazel.vercel.app/'] }));
+app.use(cors({
+    origin: ['http://localhost:5137', 'https://inventorymanagement-hazel.vercel.app'],
+    credentials: true
+}));
 app.use(express.json());
 
 // Routes
