@@ -2,18 +2,13 @@ import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import { categoryRoutes } from './routes/category.routes';
 import { productRoutes } from './routes/product.routes';
-import bodyParser from 'body-parser';
 
 const app = express();
 
-// Middleware
-app.use(cors({
-    origin: [],
-    credentials: true
-}));
 // Allowed origins
 const allowedOrigins = [
-    'http://localhost:5173', 'https://inventorymanagement-hazel.vercel.app'
+    'http://localhost:5173',
+    'https://inventorymanagement-hazel.vercel.app',
 ];
 
 // CORS middleware
@@ -32,10 +27,8 @@ app.use(
     })
 );
 
-app.options('*', cors());
-
+// Middleware to parse JSON
 app.use(express.json());
-app.use(bodyParser.json());
 
 // Routes
 app.get('/', (req: Request, res: Response) => {
@@ -44,7 +37,8 @@ app.get('/', (req: Request, res: Response) => {
         message: 'Welcome to Inventory management system.',
         version: '1.0.0',
     });
-})
+});
+
 app.use('/categories', categoryRoutes);
 app.use('/products', productRoutes);
 
